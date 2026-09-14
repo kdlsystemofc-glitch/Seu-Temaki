@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proof 03 — Scene 03: Horizontal Sushi Horizon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #070709;
+      --accent: #ff5e3a;
+      --font-display: 'Syne', sans-serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-color: var(--bg);
+      color: #fafafa;
+      font-family: var(--font-sans);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 3vw;
+    }
+
+    .top-beam {
+      width: 94vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      margin-bottom: 1.2vh;
+    }
+    .beam-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+    .beam-meta {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: #8e8e99;
+      letter-spacing: 0.1em;
+    }
+
+    .horizon-frame {
+      position: relative;
+      width: 94vw;
+      height: 74vh;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 94, 58, 0.35);
+      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.95);
+    }
+
+    /* Object position center 62% targets the razor-sharp core banquet area in imgi_23 */
+    .horizon-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 62%;
+    }
+
+    .horizon-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 7, 9, 0.1) 0%, rgba(7, 7, 9, 0.25) 45%, rgba(7, 7, 9, 0.92) 100%);
+      pointer-events: none;
+    }
+
+    .horizon-content-dock {
+      position: absolute;
+      bottom: 2.8rem;
+      left: 3.5rem;
+      right: 3.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      z-index: 10;
+    }
+
+    .horizon-headline {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(3.2rem, 5.8vw, 5.6rem);
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      text-shadow: 0 15px 40px rgba(0, 0, 0, 0.95);
+    }
+
+    .horizon-desc-block {
+      max-width: 460px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: right;
+    }
+
+    .horizon-desc {
+      font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+      font-weight: 400;
+      color: #e2dbd4;
+      line-height: 1.5;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.9);
+    }
+
+    .horizon-tagline {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <header class="top-beam">
+    <span class="beam-eyebrow">02 / A MESA COMPLETA · BANQUETES & COMBINADOS</span>
+    <span class="beam-meta">SEU TEMAKI · DIADEMA - SP</span>
+  </header>
+
+  <div class="horizon-frame">
+    <img 
+      class="horizon-img"
+      src="./imagens/imgi_23_499885121_1522856655787110_8446160354367114746_n.jpg" 
+      alt="Banquete Monumental 4K"
+    />
+    <div class="horizon-overlay"></div>
+
+    <div class="horizon-content-dock">
+      <h1 class="horizon-headline">
+        Fartura em<br>
+        Cada Corte.
+      </h1>
+
+      <div class="horizon-desc-block">
+        <span class="horizon-tagline">HOT ROLLS · CAMARÃO · SASHIMIS · COUVE CRISPY</span>
+        <p class="horizon-desc">
+          Sashimis de corte generoso, uramakis especiais e combinados montados para compartilhar. Zero miséria, 100% fresco.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

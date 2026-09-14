@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proof 05 — Final: Pôster Gastronômico de Campanha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #040405;
+      --accent: #ff5e3a;
+      --accent-hover: #ff7555;
+      --font-display: 'Syne', sans-serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-color: var(--bg);
+      color: #fafafa;
+      font-family: var(--font-sans);
+      position: relative;
+    }
+
+    /* Photographic Background 4K Texture */
+    .poster-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.26) saturate(1.35) contrast(1.1);
+      z-index: 1;
+    }
+    .poster-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(4, 4, 5, 0.3) 0%, rgba(4, 4, 5, 0.92) 80%, #040405 100%);
+      z-index: 2;
+    }
+
+    /* FULL-BLEED POSTER CANVAS */
+    .poster-canvas {
+      position: absolute;
+      inset: 3.5vh 3.5vw;
+      border: 1px solid rgba(255, 94, 58, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(1.5rem, 3.5vh, 2.8rem) clamp(1.5rem, 3.5vw, 3.5rem);
+      z-index: 10;
+    }
+
+    /* Top Poster Header Beam */
+    .poster-header-beam {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      padding-bottom: 1.2rem;
+    }
+    .poster-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    .poster-seal {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent);
+      box-shadow: 0 0 15px rgba(255, 94, 58, 0.4);
+    }
+    .poster-brand-text {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.2rem;
+      letter-spacing: 0.12em;
+      color: #ffffff;
+    }
+    .poster-brand-sub {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      display: block;
+    }
+    .poster-hours-tag {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.78rem;
+      color: #10b981;
+      letter-spacing: 0.12em;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+    }
+
+    /* MONUMENTAL POSTER CORE */
+    .poster-core-layout {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 2rem;
+      margin: 2vh 0;
+    }
+
+    .poster-massive-headline {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(3.4rem, 6.4vw, 6.6rem);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+      text-shadow: 0 20px 60px rgba(0, 0, 0, 0.95);
+      max-width: 65vw;
+    }
+    .poster-massive-headline span {
+      color: var(--accent);
+    }
+
+    .poster-side-manifesto {
+      max-width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      text-align: right;
+    }
+    .manifesto-text {
+      font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+      color: #d4cdc5;
+      line-height: 1.55;
+    }
+    .manifesto-proof {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #f59e0b;
+      letter-spacing: 0.08em;
+    }
+
+    /* ARCHITECTURAL CONVERSION VAULT BAR */
+    .poster-conversion-vault {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 1.4rem;
+    }
+
+    .vault-location-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .vault-address {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .vault-city {
+      font-size: 0.8rem;
+      color: #8e8e99;
+    }
+
+    .btn-vault-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background-color: var(--accent);
+      color: #030304;
+      padding: 1.1rem 2.8rem;
+      border-radius: 999px;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      box-shadow: 0 14px 45px rgba(255, 94, 58, 0.45);
+      transition: transform 0.25s ease, background-color 0.25s ease;
+    }
+    .btn-vault-action:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+    .btn-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #030304;
+    }
+    .btn-number {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.92rem;
+      opacity: 0.85;
+    }
+    .btn-arrow {
+      width: 20px;
+      height: 20px;
+      stroke-width: 2.6;
+    }
+  </style>
+</head>
+<body>
+
+  <img 
+    class="poster-bg-img"
+    src="./imagens/imgi_25_502082185_1813408956251725_7892696575808405132_n.jpg" 
+    alt="Fundo Gastronômico 4K"
+  />
+  <div class="poster-vignette"></div>
+
+  <div class="poster-canvas">
+    
+    <header class="poster-header-beam">
+      <div class="poster-brand">
+        <img 
+          class="poster-seal" 
+          src="./imagens/imgi_2_473146186_1078408737366619_9184888394942877183_n.jpg" 
+          alt="Selo Oficial"
+        />
+        <div>
+          <span class="poster-brand-text">SEU TEMAKI</span>
+          <span class="poster-brand-sub">Sushibar & Temakeria Noturna</span>
+        </div>
+      </div>
+      <div class="poster-hours-tag">
+        ABRE HOJE ÀS 18:00
+      </div>
+    </header>
+
+    <div class="poster-core-layout">
+      <h1 class="poster-massive-headline">
+        O TEMAKI MAIS<br>
+        <span>GENEROSO</span> DA<br>
+        SUA NOITE.
+      </h1>
+
+      <div class="poster-side-manifesto">
+        <p class="manifesto-text">
+          Peça direto pelo WhatsApp oficial com cardápio completo. Atendimento noturno das 18h às 00h em Diadema.
+        </p>
+        <span class="manifesto-proof">4.8 ★★★★★ (35 avaliações Google)</span>
+      </div>
+    </div>
+
+    <footer class="poster-conversion-vault">
+      <div class="vault-location-meta">
+        <span class="vault-address">Passagem Orlando Dias, 255</span>
+        <span class="vault-city">Vila Nogueira · Diadema - SP · Delivery, Retirada e Salão</span>
+      </div>
+
+      <a href="https://wa.me/5511964009067" target="_blank" rel="noopener noreferrer" class="btn-vault-action">
+        <span class="btn-dot"></span>
+        <span>PEDIR NO WHATSAPP</span>
+        <span class="btn-number">(11) 96400-9067</span>
+        <svg class="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </a>
+    </footer>
+
+  </div>
+
+</body>
+</html>

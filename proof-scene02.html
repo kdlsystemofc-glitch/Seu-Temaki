@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proof 02 — Scene 02: Hot Rolls Monolith & Typographic Tension</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #070709;
+      --accent: #ff5e3a;
+      --accent-gold: #f59e0b;
+      --font-display: 'Syne', sans-serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-color: var(--bg);
+      color: #fafafa;
+      font-family: var(--font-sans);
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .bg-grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+
+    /* MONOLITH: Anchored at left: 8vw, height: 110vh (invades top & bottom) */
+    .monolith-slab {
+      position: absolute;
+      left: 7vw;
+      top: -5vh;
+      width: 36vw;
+      height: 110vh;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.95), 0 0 60px rgba(255,94,58,0.25);
+      border: 1.5px solid rgba(255, 94, 58, 0.4);
+      z-index: 10;
+    }
+
+    .monolith-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .monolith-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7,7,9,0.2) 0%, transparent 50%, rgba(7,7,9,0.7) 100%);
+      pointer-events: none;
+    }
+
+    .monolith-tag {
+      position: absolute;
+      top: 10vh;
+      left: 1.5rem;
+      background: rgba(15, 15, 19, 0.9);
+      border: 1px solid var(--accent);
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+      z-index: 12;
+    }
+    .monolith-tag span {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+    }
+
+    /* TYPOGRAPHIC INVASION / SPATIAL TENSION */
+    /* "HOT ROLL" passes BEHIND the monolith (z-index: 2), cutting through the letters */
+    .typo-backdrop-cut {
+      position: absolute;
+      left: 20vw;
+      top: 14vh;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(5.5rem, 10.5vw, 11rem);
+      line-height: 0.85;
+      color: rgba(255, 255, 255, 0.12);
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* RIGHT EDITORIAL TENSION FIELD */
+    .editorial-field {
+      position: absolute;
+      right: 6vw;
+      top: 24vh;
+      width: 48vw;
+      z-index: 15;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .editorial-eyebrow {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.25em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .editorial-hero-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(3rem, 5.5vw, 5.2rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-left: -4vw; /* Intentionally crosses and overlaps the right edge of the monolith */
+      text-shadow: 0 10px 30px rgba(0,0,0,0.95);
+    }
+
+    .editorial-hero-title span {
+      color: var(--accent);
+    }
+
+    .editorial-paragraph {
+      font-size: clamp(1rem, 1.3vw, 1.2rem);
+      font-weight: 400;
+      color: #d4cdc5;
+      line-height: 1.6;
+      max-width: 520px;
+    }
+
+    .proof-bullet-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding-top: 0.5rem;
+      border-top: 1.5px solid rgba(255, 94, 58, 0.35);
+      max-width: 460px;
+    }
+
+    .proof-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--accent-gold);
+    }
+
+    .proof-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid-lines"></div>
+
+  <!-- Monumental Backdrop Text Cutting Behind Monolith -->
+  <div class="typo-backdrop-cut">
+    HOT ROLL
+  </div>
+
+  <!-- Monolith Invading Viewport (Top/Bottom Overhang) -->
+  <div class="monolith-slab">
+    <div class="monolith-tag">
+      <span>01 / CROCÂNCIA NOTURNA</span>
+    </div>
+    <img 
+      class="monolith-img"
+      src="./imagens/imgi_19_504023113_1230913362047808_4185211085465195844_n.jpg" 
+      alt="Hot Roll 4K Monolith"
+    />
+    <div class="monolith-gradient"></div>
+  </div>
+
+  <!-- Asymmetric Editorial Field -->
+  <div class="editorial-field">
+    <span class="editorial-eyebrow">01 / CROCÂNCIA NOTURNA · DIADEMA</span>
+    
+    <h1 class="editorial-hero-title">
+      Massa Dourada.<br>
+      <span>Artesanal.</span>
+    </h1>
+
+    <p class="editorial-paragraph">
+      Fritura dourada na temperatura exata. Cream cheese denso, finalizado com tarê espesso artesanal e cebolinha fresca cortada fina.
+    </p>
+
+    <div class="proof-bullet-bar">
+      <span class="proof-dot"></span>
+      <span class="proof-label">Frito no momento do seu pedido · Sem massa murcha</span>
+    </div>
+  </div>
+</body>
+</html>

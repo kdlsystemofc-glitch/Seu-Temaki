@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proof 01 — Architectural Shutter Split (50% Midpoint)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #070709;
+      --accent: #ff5e3a;
+      --accent-glow: rgba(255, 94, 58, 0.3);
+      --font-display: 'Syne', sans-serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-color: var(--bg);
+      color: #fafafa;
+      font-family: var(--font-sans);
+      position: relative;
+    }
+    .bg-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, transparent 30%, rgba(3, 3, 4, 0.85) 80%, #030304 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .bg-ember {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+      filter: blur(80px);
+      z-index: 1;
+    }
+    .bg-marquee {
+      position: absolute;
+      width: 100%;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.22em;
+      color: rgba(255, 255, 255, 0.08);
+      text-transform: uppercase;
+      white-space: nowrap;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .bg-marquee-top { top: 6vh; }
+    .bg-marquee-bottom { bottom: 6vh; }
+
+    .kanji-left {
+      position: absolute;
+      left: 3.5vw;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: rgba(255, 94, 58, 0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      z-index: 3;
+    }
+    .kanji-right {
+      position: absolute;
+      right: 3.5vw;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: rgba(255, 94, 58, 0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      z-index: 3;
+    }
+
+    .cardinal {
+      position: absolute;
+      z-index: 20;
+      opacity: 0.45;
+    }
+    .cardinal-tl {
+      top: 2.5rem;
+      left: 3.5rem;
+      transform: translateY(-15px);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .cardinal-tl img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent);
+    }
+    .brand-text {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #fff;
+    }
+    .cardinal-tr {
+      top: 2.5rem;
+      right: 3.5rem;
+      transform: translateY(-15px);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: #10b981;
+    }
+    .cardinal-bl {
+      bottom: 2.5rem;
+      left: 3.5rem;
+      transform: translateY(15px);
+      font-size: 0.75rem;
+      color: #8e8e99;
+    }
+    .cardinal-br {
+      bottom: 2.5rem;
+      right: 3.5rem;
+      transform: translateY(15px);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .shutter-stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .orbit-ring-shutter {
+      position: absolute;
+      width: 580px;
+      height: 580px;
+      border-radius: 50%;
+      border: 1px dashed rgba(255, 94, 58, 0.2);
+      transform: scale(1.18);
+      opacity: 0.35;
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    .shutter-monolith {
+      position: relative;
+      width: 440px;
+      height: 72vh;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 0 80px rgba(0, 0, 0, 0.95), 0 0 50px rgba(255, 94, 58, 0.25);
+      border: 1.5px solid rgba(255, 94, 58, 0.45);
+      z-index: 10;
+      clip-path: polygon(0% 4%, 100% 4%, 100% 96%, 0% 96%);
+    }
+
+    .shutter-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 38%;
+      transform: scale(1.02);
+    }
+
+    .shutter-glow-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 7, 9, 0.2) 0%, transparent 40%, rgba(7, 7, 9, 0.6) 100%);
+      pointer-events: none;
+    }
+
+    .shutter-blade-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4%;
+      background: linear-gradient(180deg, #ff5e3a 0%, transparent 100%);
+      opacity: 0.6;
+      z-index: 12;
+    }
+    .shutter-blade-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4%;
+      background: linear-gradient(0deg, #ff5e3a 0%, transparent 100%);
+      opacity: 0.6;
+      z-index: 12;
+    }
+
+    .typo-layer-left {
+      position: absolute;
+      left: 6vw;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(3.2rem, 5.8vw, 5.4rem);
+      line-height: 0.92;
+      color: #ffffff;
+      letter-spacing: -0.03em;
+      z-index: 8;
+      text-shadow: 0 10px 40px rgba(0,0,0,0.9);
+      pointer-events: none;
+    }
+
+    .typo-layer-right {
+      position: absolute;
+      right: 6vw;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(3.2rem, 5.8vw, 5.4rem);
+      line-height: 0.92;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+      z-index: 15;
+      text-shadow: 0 10px 40px rgba(0,0,0,0.95);
+      pointer-events: none;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-vignette"></div>
+  <div class="bg-ember"></div>
+
+  <div class="bg-marquee bg-marquee-top">
+    FARTURA PURA • TRANSBORDANDO SALMÃO • O TEMAKI MAIS INDULGENTE • FEITO NA HORA • ZERO MISÉRIA
+  </div>
+  <div class="bg-marquee bg-marquee-bottom">
+    HOT ROLLS CROCANTES • CUBOS GIGANTES DE SALMÃO • RECHEIO ATÉ A PONTA DA ALGA • TARTAR FRESCO
+  </div>
+
+  <div class="kanji-left"><span>贅</span><span>沢</span></div>
+  <div class="kanji-right"><span>職</span><span>人</span></div>
+
+  <div class="cardinal cardinal-tl">
+    <img src="./imagens/imgi_2_473146186_1078408737366619_9184888394942877183_n.jpg" alt="Logo" />
+    <span class="brand-text">SEU TEMAKI</span>
+  </div>
+  <div class="cardinal cardinal-tr">ABRE HOJE ÀS 18:00</div>
+  <div class="cardinal cardinal-bl">Passagem Orlando Dias, 255 · Diadema</div>
+  <div class="cardinal cardinal-br">(11) 96400-9067</div>
+
+  <div class="shutter-stage">
+    <div class="orbit-ring-shutter"></div>
+
+    <div class="typo-layer-left">
+      <span>TRANS-</span><br>
+      <span>BORDANDO</span>
+    </div>
+
+    <div class="shutter-monolith">
+      <div class="shutter-blade-top"></div>
+      <img 
+        class="shutter-img"
+        src="./imagens/imgi_22_503686661_1049760586562835_2545529223204355685_n.jpg" 
+        alt="Temaki 4K"
+      />
+      <div class="shutter-glow-overlay"></div>
+      <div class="shutter-blade-bottom"></div>
+    </div>
+
+    <div class="typo-layer-right">
+      <span>SALMÃO</span><br>
+      <span style="color: #fff;">PURO.</span>
+    </div>
+  </div>
+</body>
+</html>

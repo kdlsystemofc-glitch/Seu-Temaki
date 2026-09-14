@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proof 04 — Scene 04: Twin Slices & Spatial Tension</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #070709;
+      --accent: #ff5e3a;
+      --font-display: 'Syne', sans-serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-color: var(--bg);
+      color: #fafafa;
+      font-family: var(--font-sans);
+      position: relative;
+    }
+
+    .top-header-strip {
+      position: absolute;
+      top: 5vh;
+      left: 5vw;
+      right: 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      padding-bottom: 0.6rem;
+      z-index: 20;
+    }
+    .strip-title {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+    .strip-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: #8e8e99;
+    }
+
+    /* TWIN SLICES (ASYMMETRIC VERTICAL SLABS WITH DELIBERATE TENSION) */
+    .slice-a {
+      position: absolute;
+      left: 28vw;
+      top: 14vh;
+      width: 20vw;
+      height: 74vh;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 94, 58, 0.35);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95);
+      z-index: 10;
+    }
+    .slice-a img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .slice-b {
+      position: absolute;
+      left: 51vw;
+      top: 26vh; /* Displaced downwards, creating diagonal asymmetry */
+      width: 22vw;
+      height: 66vh;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95);
+      z-index: 12;
+    }
+    .slice-b img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .slice-tag {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      background: rgba(15, 15, 19, 0.9);
+      border: 1px solid var(--accent);
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      z-index: 5;
+    }
+
+    /* LEFT EDITORIAL BLOCK */
+    .block-left {
+      position: absolute;
+      left: 5vw;
+      top: 22vh;
+      width: 20vw;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      z-index: 20;
+    }
+    .display-time {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2.4rem, 3.4vw, 3.8rem);
+      line-height: 0.92;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+    .time-days {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .time-desc {
+      font-size: 0.88rem;
+      color: #a0a0ab;
+      line-height: 1.5;
+      margin-top: 0.4rem;
+    }
+
+    /* RIGHT EDITORIAL BLOCK */
+    .block-right {
+      position: absolute;
+      right: 5vw;
+      bottom: 14vh;
+      width: 19vw;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      z-index: 20;
+      text-align: right;
+    }
+    .display-service {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.5rem, 2.2vw, 2.4rem);
+      line-height: 1.05;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+    .service-address {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .service-desc {
+      font-size: 0.85rem;
+      color: #a0a0ab;
+      line-height: 1.5;
+      margin-top: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-header-strip">
+    <span class="strip-title">03 / EXPEDIÇÃO NOTURNA DIADEMA · DA BANCADA PARA SUA CASA</span>
+    <span class="strip-tag">PREPARO IMEDIATO</span>
+  </header>
+
+  <!-- Left Operational Pillar -->
+  <div class="block-left">
+    <span class="display-time">18h às 00h</span>
+    <span class="time-days">Terça a Domingo</span>
+    <p class="time-desc">
+      Atendimento noturno em Diadema. Montagem sob demanda com peixe fresco cortado na hora.
+    </p>
+  </div>
+
+  <!-- Slice A: imgi_31 (Sashimis Frescos 4K) -->
+  <div class="slice-a">
+    <img 
+      src="./imagens/imgi_31_503375051_1429874348465016_1155533393888140719_n.jpg" 
+      alt="Sashimi Fresco 4K"
+    />
+    <div class="slice-tag">FRESCO · SASHIMI</div>
+  </div>
+
+  <!-- Slice B: imgi_41 (Bancada Sushibar Full-HD) -->
+  <div class="slice-b">
+    <img 
+      src="./imagens/imgi_41_501914622_1010684634594949_6452863608889657784_n.jpg" 
+      alt="Bancada Sushibar"
+    />
+    <div class="slice-tag">EXPEDIÇÃO DIADEMA</div>
+  </div>
+
+  <!-- Right Operational Pillar -->
+  <div class="block-right">
+    <span class="display-service">Delivery · Retirada · Salão</span>
+    <span class="service-address">Passagem Orlando Dias, 255</span>
+    <p class="service-desc">
+      Embalagens térmicas vedadas. Alga crocante e salmão fresco entregues intactos.
+    </p>
+  </div>
+
+</body>
+</html>
