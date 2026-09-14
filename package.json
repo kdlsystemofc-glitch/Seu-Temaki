@@ -1,0 +1,24 @@
+{
+  "name": "seu-temaki",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.18",
+    "split-type": "^0.3.4"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.10.0"
+  }
+}
