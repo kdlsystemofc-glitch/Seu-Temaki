@@ -1,128 +1,530 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seu Temaki — Culinária Japonesa em Diadema</title>
-  <meta name="description" content="Seu Temaki em Diadema - SP. Temakis transbordando salmão fresco, hot rolls artesanais e combinados fartos. Abre às 18h." />
+  <meta name="description" content="Seu Temaki em Diadema - SP. Temakis artesanais transbordando salmão fresco, hot rolls crocantes e combinados fartos. Delivery noturno e salão. Abre às 18h." />
+  <link rel="canonical" href="https://seutemaki.com.br/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#030304" />
+
+  <!-- OPEN GRAPH / FACEBOOK / WHATSAPP -->
+  <meta property="og:type" content="restaurant.restaurant" />
+  <meta property="og:title" content="Seu Temaki — Culinária Japonesa em Diadema" />
+  <meta property="og:description" content="Temakis transbordando salmão fresco, hot rolls artesanais e combinados fartos em Diadema - SP. Delivery noturno e salão a partir das 18h." />
+  <meta property="og:url" content="https://seutemaki.com.br/" />
+  <meta property="og:site_name" content="Seu Temaki" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:image" content="https://seutemaki.com.br/imagens/imgi_22_503686661_1049760586562835_2545529223204355685_n.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Temaki de salmão fresco transbordando do Seu Temaki em Diadema" />
+
+  <!-- TWITTER / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Seu Temaki — Culinária Japonesa em Diadema" />
+  <meta name="twitter:description" content="Temakis transbordando salmão fresco, hot rolls artesanais e combinados fartos em Diadema - SP. Abre às 18h." />
+  <meta name="twitter:image" content="https://seutemaki.com.br/imagens/imgi_22_503686661_1049760586562835_2545529223204355685_n.jpg" />
+
+  <!-- STRUCTURED DATA (SCHEMA.ORG JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "JapaneseRestaurant",
+    "@id": "https://seutemaki.com.br/#restaurant",
+    "name": "Seu Temaki",
+    "description": "Restaurante de culinária japonesa em Diadema - SP, especializado em temakis fartos, hot rolls artesanais crocantes e combinados com salmão fresco.",
+    "url": "https://seutemaki.com.br/",
+    "telephone": "+55-11-96400-9067",
+    "priceRange": "R$ 20–100",
+    "servesCuisine": [
+      "Japonesa",
+      "Sushi",
+      "Temakeria"
+    ],
+    "image": "https://seutemaki.com.br/imagens/imgi_22_503686661_1049760586562835_2545529223204355685_n.jpg",
+    "logo": "https://seutemaki.com.br/imagens/imgi_2_473146186_1078408737366619_9184888394942877183_n.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Passagem Orlando Dias, 255",
+      "addressLocality": "Diadema",
+      "addressRegion": "SP",
+      "postalCode": "09960-445",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -23.6865,
+      "longitude": -46.6234
+    },
+    "hasMap": "https://maps.google.com/?q=Passagem+Orlando+Dias,+255+-+Vila+Nogueira,+Diadema+-+SP,+09960-445",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "18:00",
+        "closes": "23:59"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "35",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "hasMenu": "https://wa.me/5511964009067",
+    "acceptsReservations": false,
+    "paymentAccepted": "Cash, Credit Card, Debit Card, Pix",
+    "currenciesAccepted": "BRL"
+  }
+  </script>
+
+  <!-- PRELOAD CRITICAL ABOVE-THE-FOLD ASSETS (HERO & BRAND LOGO) -->
+  <link rel="preload" as="image" href="/assets/imgi_22_503686661_1049760586562835_2545529223204355685_n-DYFV8mes.webp" type="image/webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="/assets/imgi_2_473146186_1078408737366619_9184888394942877183_n-BzNhnCD_.webp" type="image/webp" />
+
+  <!-- GOOGLE FONTS PRECONNECT & OPTIMIZED SUBSET -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/assets/index-L0KvTbAd.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CR8pOSfB.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/webp" href="/assets/imgi_2_473146186_1078408737366619_9184888394942877183_n-BzNhnCD_.webp">
+  <script type="module" crossorigin src="/assets/index-Cod5rdw8.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BECXlBbd.css">
 </head>
 <body>
 
-  <!-- INTRO CURTAIN / SMOOTH RADIAL EXPANSION -->
+  <!-- SKIP TO CONTENT FOR KEYBOARD ACCESS -->
+  <a href="#hero-stage" class="skip-to-content">Pular para o conteúdo principal</a>
+
+  <!-- INTRO CURTAIN / SMOOTH ENTRANCE -->
   <div id="intro-curtain">
     <div class="intro-loader-pulse"></div>
   </div>
 
-  <!-- MAIN OPENING VIEWPORT (DIRECTION B: CONCENTRIC & CARDINAL) -->
-  <main id="opening-viewport">
-    
-    <!-- RADIAL BACKGROUND AMBIENCE -->
-    <div class="bg-radial-vignette"></div>
-    <div class="bg-ambient-ember"></div>
+  <!-- MASTER SMOOTH WRAPPER -->
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
 
-    <!-- CARDINAL CORNER 1: TOP-LEFT (IDENTITY & OFFICIAL BADGE) -->
-    <header class="cardinal cardinal-tl">
-      <div class="brand-badge">
-        <img src="/assets/imgi_2_473146186_1078408737366619_9184888394942877183_n-BNIVvsg8.jpg" alt="Logo Oficial Seu Temaki" />
-      </div>
-      <div class="brand-meta">
-        <span class="brand-title">SEU TEMAKI</span>
-        <span class="brand-subtitle">Sushi & Temakeria</span>
-      </div>
-    </header>
+      <!-- ====================================================================
+           SCENE 01: HERO LOCKED (FRAME A) + ARCHITECTURAL SHUTTER SPLIT
+           ==================================================================== -->
+      <section id="scene-01-stage" class="experience-stage">
+        <div id="opening-viewport">
+          
+          <!-- AMBIENT ILLUMINATION -->
+          <div class="bg-radial-vignette"></div>
+          <div class="bg-ambient-ember"></div>
+          <div class="bg-ambient-secondary"></div>
 
-    <!-- CARDINAL CORNER 2: TOP-RIGHT (OPERATIONAL TRUTH) -->
-    <div class="cardinal cardinal-tr">
-      <div class="live-indicator">
-        <span class="pulse-dot">
-          <span class="pulse-dot-ring"></span>
-          <span class="pulse-dot-core"></span>
-        </span>
-        <span class="live-status-text">ABRE HOJE ÀS 18:00</span>
-      </div>
-      <span class="live-service-text">Delivery Noturno · Retirada · Local</span>
-    </div>
+          <!-- KINETIC BACKGROUND MARQUEES -->
+          <div class="marquee-strip marquee-top" aria-hidden="true">
+            <div class="marquee-content marquee-left">
+              <span>FARTURA PURA • TRANSBORDANDO SALMÃO • O TEMAKI MAIS INDULGENTE • FEITO NA HORA • ZERO MISÉRIA • DIADEMA NOTURNA •&nbsp;</span>
+              <span>FARTURA PURA • TRANSBORDANDO SALMÃO • O TEMAKI MAIS INDULGENTE • FEITO NA HORA • ZERO MISÉRIA • DIADEMA NOTURNA •&nbsp;</span>
+            </div>
+          </div>
 
-    <!-- CARDINAL CORNER 3: BOTTOM-LEFT (VERIFIED LOCATION & PROOF) -->
-    <div class="cardinal cardinal-bl">
-      <div class="rating-badge">
-        <span class="rating-score">4.8</span>
-        <span class="rating-stars">★★★★★</span>
-        <span class="rating-source">(35 avaliações Google)</span>
-      </div>
-      <p class="address-text">
-        Passagem Orlando Dias, 255<br>
-        <span class="address-sub">Vila Nogueira · Diadema - SP</span>
-      </p>
-    </div>
+          <div class="marquee-strip marquee-bottom" aria-hidden="true">
+            <div class="marquee-content marquee-right">
+              <span>HOT ROLLS CROCANTES • CUBOS GIGANTES DE SALMÃO • RECHEIO ATÉ A PONTA DA ALGA • TARTAR FRESCO • SASHIMIS ARTESANAIS •&nbsp;</span>
+              <span>HOT ROLLS CROCANTES • CUBOS GIGANTES DE SALMÃO • RECHEIO ATÉ A PONTA DA ALGA • TARTAR FRESCO • SASHIMIS ARTESANAIS •&nbsp;</span>
+            </div>
+          </div>
 
-    <!-- CARDINAL CORNER 4: BOTTOM-RIGHT (CONVERSION ACTION) -->
-    <div class="cardinal cardinal-br">
-      <span class="btn-caption">Pedidos Diretos & Cardápio</span>
-      <a href="https://wa.me/5511964009067" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
-        <span class="btn-dot"></span>
-        <span class="btn-number">(11) 96400-9067</span>
-        <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-        </svg>
-      </a>
-    </div>
+          <!-- VERTICAL KANJI ACCENTS -->
+          <div class="kanji-flank kanji-left" aria-hidden="true">
+            <span>贅</span>
+            <span>沢</span>
+          </div>
+          <div class="kanji-flank kanji-right" aria-hidden="true">
+            <span>職</span>
+            <span>人</span>
+          </div>
 
-    <!-- HERO CONCENTRIC STAGE (CENTERPIECE) -->
-    <div id="hero-stage">
-      
-      <!-- BACKGROUND OVERSIZED WATERMARK TYPOGRAPHY -->
-      <div class="hero-watermark">
-        <span>SEU TEMAKI</span>
-      </div>
+          <!-- CARDINAL CORNERS (LOCKED FRAME A) -->
+          <header class="cardinal cardinal-tl">
+            <div class="brand-badge">
+              <img src="/assets/imgi_2_473146186_1078408737366619_9184888394942877183_n-BzNhnCD_.webp" alt="Logo Oficial Seu Temaki" width="44" height="44" loading="eager" decoding="async" />
+            </div>
+            <div class="brand-meta">
+              <span class="brand-title">SEU TEMAKI</span>
+              <span class="brand-subtitle">Sushi & Temakeria</span>
+            </div>
+          </header>
 
-      <!-- ROTATING ORBITAL TYPOGRAPHY RING (SVG) -->
-      <div id="orbit-ring">
-        <svg class="animate-slow-spin" viewBox="0 0 500 500" style="width:100%; height:100%;">
-          <path id="textCircle" fill="none" d="M 250, 250 m -210, 0 a 210,210 0 1,1 420,0 a 210,210 0 1,1 -420,0" />
-          <text class="text-orbit-path">
-            <textPath href="#textCircle" startOffset="0%">
-              • SEU TEMAKI • DIADEMA • SALMÃO FRESCO • RECHEIO TRANSBORDANTE • HOT ROLLS & TEMAKIS ARTESANAIS •
-            </textPath>
-          </text>
-        </svg>
-      </div>
+          <div class="cardinal cardinal-tr">
+            <div class="live-indicator">
+              <span class="pulse-dot">
+                <span class="pulse-dot-ring"></span>
+                <span class="pulse-dot-core"></span>
+              </span>
+              <span class="live-status-text">ABRE HOJE ÀS 18:00</span>
+            </div>
+            <span class="live-service-text">Delivery Noturno · Retirada · Local</span>
+          </div>
 
-      <!-- RADIAL DISC FRAME & TACTILE FOOD HERO -->
-      <div id="hero-disc-container">
-        
-        <!-- Outer Glowing Ring -->
-        <div class="hero-halo"></div>
-        
-        <!-- Interactive 2.5D Food Mask Card -->
-        <div id="interactive-card">
-          <img 
-            id="hero-img" 
-            src="/assets/imgi_22_503686661_1049760586562835_2545529223204355685_n-Bj2XlXuY.jpg" 
-            alt="Temaki artesanal com salmão fresco transbordando, cream cheese, gergelim e cebolinha" 
-          />
-          <div class="disc-inner-glow"></div>
-          <div class="disc-gradient-overlay"></div>
+          <div class="cardinal cardinal-bl">
+            <div class="rating-badge">
+              <span class="rating-score">4.8</span>
+              <span class="rating-stars">★★★★★</span>
+              <span class="rating-source">(35 avaliações Google)</span>
+            </div>
+            <a href="https://maps.google.com/?q=Passagem+Orlando+Dias,+255+-+Vila+Nogueira,+Diadema+-+SP,+09960-445" target="_blank" rel="noopener noreferrer" class="address-link" title="Ver no Google Maps">
+              <p class="address-text">
+                Passagem Orlando Dias, 255<br>
+                <span class="address-sub">Vila Nogueira · Diadema - SP</span>
+              </p>
+            </a>
+          </div>
+
+          <div class="cardinal cardinal-br">
+            <span class="btn-caption">Pedidos Diretos & Cardápio</span>
+            <a href="https://wa.me/5511964009067" target="_blank" rel="noopener noreferrer" class="btn-whatsapp" aria-label="Fazer pedido pelo WhatsApp oficial (11) 96400-9067">
+              <span class="btn-dot"></span>
+              <span class="btn-number">(11) 96400-9067</span>
+              <svg class="btn-icon" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- HERO ARCHITECTURAL STAGE -->
+          <div id="hero-stage">
+            
+            <div class="hero-watermark" aria-hidden="true">
+              <span>SEU TEMAKI</span>
+            </div>
+
+            <!-- ROTATING ORBITAL SVG RING -->
+            <div id="orbit-ring" aria-hidden="true">
+              <svg class="animate-slow-spin" viewBox="0 0 500 500" style="width:100%; height:100%;">
+                <circle cx="250" cy="250" r="235" fill="none" stroke="rgba(255, 107, 74, 0.25)" stroke-width="1.5" stroke-dasharray="4 8" />
+                <path id="textCircle" fill="none" d="M 250, 250 m -210, 0 a 210,210 0 1,1 420,0 a 210,210 0 1,1 -420,0" />
+                <text class="text-orbit-path">
+                  <textPath href="#textCircle" xlink:href="#textCircle" startOffset="0%">
+                    • SEU TEMAKI • DIADEMA - SP • SALMÃO FRESCO • RECHEIO TRANSBORDANTE • HOT ROLLS & SUSHIS ARTESANAIS •
+                  </textPath>
+                </text>
+              </svg>
+            </div>
+
+            <!-- SHUTTER MONUMENTAL TYPOGRAPHY LAYERS (PARTICIPATING IN THE APERTURE) -->
+            <div class="typo-layer-left" aria-hidden="true">
+              <span>TRANS-</span><br>
+              <span>BORDANDO</span>
+            </div>
+
+            <div class="typo-layer-right" aria-hidden="true">
+              <span>SALMÃO</span><br>
+              <span class="accent-white">PURO.</span>
+            </div>
+
+            <!-- SHUTTER MONOLITH CONTAINER (EXPANDS FROM CIRCLE TO PORTRAIT 4K MONOLITH) -->
+            <div id="hero-disc-container" class="shutter-monolith-wrap">
+              
+              <div class="hero-halo"></div>
+              
+              <div id="interactive-card" class="shutter-monolith-card">
+                <div class="shutter-blade-top"></div>
+                <img 
+                  id="hero-img" 
+                  src="/assets/imgi_22_503686661_1049760586562835_2545529223204355685_n-DYFV8mes.webp" 
+                  alt="Temaki artesanal com salmão fresco transbordando, cream cheese, gergelim e cebolinha" 
+                  width="2268"
+                  height="4032"
+                  fetchpriority="high"
+                  loading="eager"
+                  decoding="sync"
+                />
+                <div class="disc-inner-glow"></div>
+                <div class="disc-gradient-overlay"></div>
+                <div class="shutter-blade-bottom"></div>
+              </div>
+
+              <!-- SATELLITES (FRAME A ONLY) -->
+              <div class="satellite-node satellite-hotroll">
+                <div class="satellite-img-wrap">
+                  <img src="/assets/imgi_33_502749472_615081338256924_8365177138361101063_n-Bzw7Jt-G.webp" alt="Hot Roll Crocante" width="80" height="80" loading="eager" decoding="async" />
+                </div>
+                <div class="satellite-label">
+                  <span class="satellite-tag">CROCANTE</span>
+                  <span class="satellite-name">Hot Roll Tarê</span>
+                </div>
+              </div>
+
+              <div class="satellite-node satellite-badge">
+                <span class="badge-accent">100% SALMÃO</span>
+                <span class="badge-sub">Sem miséria no recheio</span>
+              </div>
+
+            </div>
+
+            <!-- EDITORIAL HEADLINE LOCKUP (FRAME A) -->
+            <div class="hero-caption">
+              <div class="caption-tagline">
+                <span class="tagline-dot"></span>
+                <span>SUSHIBAR ARTESANAL NOTURNO</span>
+              </div>
+              <h1 class="caption-title">Transbordando Salmão.</h1>
+              <p class="caption-desc">
+                Cubos generosos do topo até a ponta da alga. Sem arroz para fazer volume.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ====================================================================
+           SCENE 02: HOT ROLLS CROCANTES (MONÓLITO VERTICAL & TENSÃO TIPOGRÁFICA)
+           ==================================================================== -->
+      <section id="scene-02-hotroll" class="experience-stage scene-hotroll">
+        <div class="bg-grid-lines"></div>
+
+        <!-- Monumental Cut Display Background Typography -->
+        <div class="typo-backdrop-cut" aria-hidden="true">
+          HOT ROLL
         </div>
 
-      </div>
+        <div class="hotroll-composition-stage">
+          
+          <!-- Monolith Slab: 110vh Vertical Pillar Invading Viewport -->
+          <div class="monolith-slab">
+            <div class="monolith-tag">
+              <span>01 / CROCÂNCIA NOTURNA</span>
+            </div>
+            <img 
+              class="monolith-img"
+              src="/assets/imgi_19_504023113_1230913362047808_4185211085465195844_n-C2QwGsH2.webp" 
+              alt="Hot Roll artesanal com tarê espesso e cebolinha em ultra resolução 4K" 
+              width="2268"
+              height="4032"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="monolith-gradient"></div>
+          </div>
 
-      <!-- DISCRETE SENSORIAL CAPTION (ANCHORED UNDER THE DISC) -->
-      <div class="hero-caption">
-        <span class="caption-title">Fartura Real em Cada Corte</span>
-        <span class="caption-desc">
-          Salmão fresco em cubos generosos, cream cheese e crosta crocante.
-        </span>
-      </div>
+          <!-- Asymmetric Right Editorial Tension Field -->
+          <div class="editorial-field">
+            <span class="editorial-eyebrow">01 / CROCÂNCIA NOTURNA · DIADEMA</span>
+            
+            <h2 class="editorial-hero-title">
+              Massa Dourada.<br>
+              <span class="accent-salmon">Artesanal.</span>
+            </h2>
+
+            <p class="editorial-paragraph">
+              Fritura dourada na temperatura exata. Cream cheese denso, finalizado com tarê espesso artesanal e cebolinha fresca cortada fina.
+            </p>
+
+            <div class="proof-bullet-bar">
+              <span class="proof-dot"></span>
+              <span class="proof-label">Frito no momento do seu pedido · Sem massa murcha</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ====================================================================
+           SCENE 03: BANQUETES & COMBINADOS (HORIZONTE ZENITAL 94VW PINNED)
+           ==================================================================== -->
+      <section id="scene-03-combinados" class="experience-stage scene-combinados">
+        <div class="combinados-stage-wrap">
+          
+          <header class="top-beam">
+            <span class="beam-eyebrow">02 / A MESA COMPLETA · BANQUETES & COMBINADOS</span>
+            <span class="beam-meta">SEU TEMAKI · DIADEMA - SP</span>
+          </header>
+
+          <!-- Horizontal Sushi Horizon Installation Window -->
+          <div class="horizon-frame">
+            <img 
+              class="horizon-img"
+              src="/assets/imgi_23_499885121_1522856655787110_8446160354367114746_n-DsQI2Xdr.webp" 
+              alt="Banquete Monumental de Combinados Japoneses em 4K nativo" 
+              width="2268"
+              height="4032"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="horizon-overlay"></div>
+
+            <div class="horizon-content-dock">
+              <h2 class="horizon-headline">
+                Fartura em<br>
+                Cada Corte.
+              </h2>
+
+              <div class="horizon-desc-block">
+                <span class="horizon-tagline">HOT ROLLS · CAMARÃO · SASHIMIS · COUVE CRISPY</span>
+                <p class="horizon-desc">
+                  Sashimis de corte generoso, uramakis especiais e combinados montados para compartilhar. Zero miséria, 100% fresco.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ====================================================================
+           SCENE 04: EXPEDIÇÃO NOTURNA (TWIN SLICES & TENSÃO ESPACIAL)
+           ==================================================================== -->
+      <section id="scene-04-expedicao" class="experience-stage scene-expedicao">
+        
+        <header class="top-header-strip">
+          <h2 class="strip-title">03 / EXPEDIÇÃO NOTURNA DIADEMA · DA BANCADA PARA SUA CASA</h2>
+          <span class="strip-tag">PREPARO IMEDIATO</span>
+        </header>
+
+        <div class="expedicao-tension-stage">
+          
+          <!-- Left Operational Pillar -->
+          <div class="block-left">
+            <h3 class="display-time">Abre às 18h</h3>
+            <span class="time-days">Atendimento Noturno</span>
+            <p class="time-desc">
+              Atendimento noturno em Diadema. Montagem sob demanda com peixe fresco cortado na hora.
+            </p>
+          </div>
+
+          <!-- Slice A: imgi_31 (Sashimis Frescos 4K) -->
+          <div class="slice-a">
+            <img 
+              src="/assets/imgi_31_503375051_1429874348465016_1155533393888140719_n-BlNpxRVb.webp" 
+              alt="Sashimis nobres de salmão fresco em 4K nativo" 
+              width="2268"
+              height="4032"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="slice-tag">FRESCO · SASHIMI</div>
+          </div>
+
+          <!-- Slice B: imgi_41 (Bancada Sushibar Full-HD) -->
+          <div class="slice-b">
+            <img 
+              src="/assets/imgi_41_501914622_1010684634594949_6452863608889657784_n-Cv3nBqKR.webp" 
+              alt="Bancada de preparação e expedição do Seu Temaki em Full-HD" 
+              width="1080"
+              height="1920"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="slice-tag">EXPEDIÇÃO DIADEMA</div>
+          </div>
+
+          <!-- Right Operational Pillar -->
+          <div class="block-right">
+            <h3 class="display-service">Delivery · Retirada · Salão</h3>
+            <span class="service-address">Passagem Orlando Dias, 255</span>
+            <p class="service-desc">
+              Embalagens térmicas vedadas. Alga crocante e salmão fresco entregues intactos.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ====================================================================
+           SCENE 05: FINAL PÔSTER GASTRONÔMICO & CONVERSÃO
+           ==================================================================== -->
+      <section id="scene-05-poster" class="experience-stage scene-poster">
+        
+        <!-- Photographic Background Texture 4K -->
+        <img 
+          class="poster-bg-img"
+          src="/assets/imgi_25_502082185_1813408956251725_7892696575808405132_n-Dg6GWVSa.webp" 
+          alt="Salmão artesanal batido - Seu Temaki Diadema" 
+          width="2268"
+          height="4032"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="poster-vignette"></div>
+
+        <!-- Full-Bleed Architectural Poster Canvas -->
+        <div class="poster-canvas">
+          
+          <header class="poster-header-beam">
+            <div class="poster-brand">
+              <img 
+                class="poster-seal" 
+                src="/assets/imgi_2_473146186_1078408737366619_9184888394942877183_n-BzNhnCD_.webp" 
+                alt="Selo Oficial Seu Temaki" 
+                width="44"
+                height="44"
+                loading="lazy"
+                decoding="async"
+              />
+              <div>
+                <span class="poster-brand-text">SEU TEMAKI</span>
+                <span class="poster-brand-sub">Sushibar & Temakeria Noturna</span>
+              </div>
+            </div>
+            <div class="poster-hours-tag">
+              ABRE HOJE ÀS 18:00
+            </div>
+          </header>
+
+          <div class="poster-core-layout">
+            <h2 class="poster-massive-headline">
+              O TEMAKI MAIS<br>
+              <span class="accent-salmon">GENEROSO</span> DA<br>
+              SUA NOITE.
+            </h2>
+
+            <div class="poster-side-manifesto">
+              <p class="manifesto-text">
+                Peça direto pelo WhatsApp oficial com cardápio completo. Atendimento noturno a partir das 18h em Diadema.
+              </p>
+              <span class="manifesto-proof">4.8 ★★★★★ (35 avaliações Google)</span>
+            </div>
+          </div>
+
+          <footer class="poster-conversion-vault">
+            <a 
+              href="https://maps.google.com/?q=Passagem+Orlando+Dias,+255+-+Vila+Nogueira,+Diadema+-+SP,+09960-445" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="vault-location-meta address-link"
+              title="Abrir no Google Maps"
+            >
+              <span class="vault-address">Passagem Orlando Dias, 255</span>
+              <span class="vault-city">Vila Nogueira · Diadema - SP · Delivery, Retirada e Salão</span>
+            </a>
+
+            <a 
+              href="https://wa.me/5511964009067" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn-vault-action" aria-label="Pedir no WhatsApp pelo número (11) 96400-9067"
+            >
+              <span class="btn-dot"></span>
+              <span>PEDIR NO WHATSAPP</span>
+              <span class="btn-number">(11) 96400-9067</span>
+              <svg class="btn-arrow" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+          </footer>
+
+        </div>
+
+      </section>
 
     </div>
-
-  </main>
+  </div>
 
 </body>
 </html>

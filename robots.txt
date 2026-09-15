@@ -1,0 +1,7 @@
+# Production robots.txt for Seu Temaki
+User-agent: *
+Allow: /
+Disallow: /proof-*.html
+Disallow: /contact_sheet.html
+
+Sitemap: https://seutemaki.com.br/sitemap.xml

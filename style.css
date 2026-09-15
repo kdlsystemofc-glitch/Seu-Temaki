@@ -1,3 +1,47 @@
+
+/* --------------------------------------------------------------------------
+   ACCESSIBILITY & FOCUS VISIBLE
+   -------------------------------------------------------------------------- */
+.skip-to-content {
+  position: fixed;
+  top: -100px;
+  left: 1.5rem;
+  background-color: var(--accent-salmon);
+  color: #030304;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.88rem;
+  z-index: 100000;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(255, 94, 58, 0.6);
+  transition: top 0.2s ease-out;
+}
+
+.skip-to-content:focus {
+  top: 1.5rem;
+  outline: 3px solid #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-salmon);
+  outline-offset: 3px;
+}
+
+.btn-whatsapp:focus-visible,
+.btn-vault-action:focus-visible {
+  outline: 3px solid #ffffff !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 6px rgba(255, 94, 58, 0.6) !important;
+}
+
+.address-link:focus-visible {
+  outline: 2px solid var(--accent-salmon);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
 /* ==========================================================================
    SEU TEMAKI — MASTER BUILD SPECIFICATION STYLESHEET (V4.0.0)
    Source of Truth: Master Spec V4 (Architectural Shutter Split · 4K Native)
@@ -38,8 +82,11 @@ html {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
   width: 100%;
+  touch-action: pan-y;
 }
 
 html.lenis, html.lenis body {
@@ -49,10 +96,13 @@ html.lenis, html.lenis body {
 body {
   width: 100%;
   min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   user-select: none;
+  -webkit-user-select: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 a {
@@ -113,6 +163,7 @@ img {
   position: relative;
   width: 100vw;
   overflow: hidden;
+  isolation: isolate;
 }
 
 /* ==========================================================================
@@ -120,6 +171,7 @@ img {
    ========================================================================== */
 #scene-01-stage {
   height: 100vh;
+  height: 100dvh;
   background-color: var(--bg-primary);
   z-index: 10;
 }
@@ -128,6 +180,7 @@ img {
   position: relative;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -312,6 +365,7 @@ img {
   border: 1px solid rgba(16, 185, 129, 0.28);
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
 
@@ -461,6 +515,9 @@ img {
 
 .hero-watermark {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-family: var(--font-display);
   font-weight: 900;
   font-size: clamp(6rem, 16vw, 15rem);
@@ -470,6 +527,7 @@ img {
   z-index: 1;
   text-align: center;
   white-space: nowrap;
+  contain: layout paint style;
 }
 
 #orbit-ring {
@@ -564,7 +622,12 @@ img {
   height: 100%;
   border-radius: 50%;
   overflow: hidden;
+  -webkit-clip-path: circle(50% at 50% 50%);
   clip-path: circle(50% at 50% 50%);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   box-shadow: 0 0 70px rgba(255, 94, 58, 0.25), 0 35px 90px rgba(0, 0, 0, 0.9);
   border: 2px solid rgba(255, 94, 58, 0.45);
   z-index: 2;
@@ -623,6 +686,7 @@ img {
   position: absolute;
   z-index: 20;
   pointer-events: auto;
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border-radius: 999px;
   display: flex;
@@ -753,6 +817,7 @@ img {
    ========================================================================== */
 #scene-02-hotroll {
   min-height: 110vh;
+  min-height: 110dvh;
   background-color: var(--bg-primary);
   display: flex;
   align-items: center;
@@ -830,6 +895,7 @@ img {
   border: 1px solid var(--accent-salmon);
   padding: 0.45rem 1rem;
   border-radius: 999px;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   z-index: 12;
 }
@@ -909,6 +975,7 @@ img {
    ========================================================================== */
 #scene-03-combinados {
   height: 100vh;
+  height: 100dvh;
   background-color: var(--bg-primary);
   display: flex;
   flex-direction: column;
@@ -1027,6 +1094,7 @@ img {
    ========================================================================== */
 #scene-04-expedicao {
   min-height: 110vh;
+  min-height: 110dvh;
   background-color: var(--bg-primary);
   display: flex;
   flex-direction: column;
@@ -1198,6 +1266,7 @@ img {
    ========================================================================== */
 #scene-05-poster {
   min-height: 100vh;
+  min-height: 100dvh;
   background-color: #040405;
   display: flex;
   align-items: center;
